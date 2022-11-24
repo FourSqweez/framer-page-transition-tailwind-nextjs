@@ -4,9 +4,13 @@ import { motion as m } from 'framer-motion'
 
 const Contact = () => {
   return (
-    <main>
+    <m.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, ease: 'easeOut' }}
+      className=' bg-red-400 page_style'>
       <div className='my-96 p-1'>
-        <h1 className='text-6xl text-center lg:text-right lg:text-9xl'>Let's Talk</h1>
+        <h1 className='main_title'>Let's Talk</h1>
       </div>
       <div className="flex gap-40">
         <div className="lg:text-2xl text-base">
@@ -20,7 +24,7 @@ const Contact = () => {
           </ul>
         </div>
       </div>
-    </main>
+    </m.main>
   )
 }
 

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.page_style{
+		@apply text-gray-900 absolute top-0 left-0 w-full h-full lg:px-48 px-16;
+	}
+
+	.main_title {
+		@apply text-6xl text-center lg:text-right lg:text-9xl;
+	}
+}
+
 @font-face {
 	font-family: "LatoLight";
 	src: url("../public/Lato-Light.ttf");
