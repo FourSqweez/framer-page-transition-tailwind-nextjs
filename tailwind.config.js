@@ -5,7 +5,13 @@ module.exports = {
 		"./src/components/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				latoLight: 'LatoLight',
+				latoBold: 'LatoBold',
+				latoRegular: 'LatoRegular'
+			}
+		},
 	},
 	plugins: [],
 }
