@@ -30,7 +30,6 @@ export default function Home() {
           variants={footerContainer}
           initial='hidden'
           animate='show'>
-
           <div className='overflow-hidden '>
             <m.div variants={footerItemContainer} className='flex justify-between'>
               <div className='overflow-hidden'>
@@ -56,14 +55,10 @@ export default function Home() {
                   <m.h3 variants={item}>Click contact for cool transition.</m.h3>
                 </div>
               </div>
-
             </m.div>
           </div>
         </m.div>
       </main>
-
-
-
     </m.div>
   )
 }
