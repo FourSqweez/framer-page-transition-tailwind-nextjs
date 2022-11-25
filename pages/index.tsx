@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { motion as m } from 'framer-motion'
-import { container, item } from '../animations'
+import { item, footerContainer, footerItemContainer } from '../animations'
 
 export default function Home() {
   return (
@@ -25,31 +25,41 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className='main_title'>Happy Pickle</m.h1>
         </div>
-        <div
-          className='flex justify-between '>
 
-          <m.div
-          variants={container}
+        <m.div
+          variants={footerContainer}
           initial='hidden'
           animate='show'>
-            <div className='overflow-hidden'>
-              <m.h2 variants={item}>Design</m.h2>
-            </div>
-            <div className='overflow-hidden'>
-              <m.h2 variants={item}>company</m.h2>
-            </div>
-            <div className='overflow-hidden'>
-              <m.h2 variants={item}>2022</m.h2>
-            </div>
-          </m.div>
 
+          <div className='overflow-hidden '>
+            <m.div variants={footerItemContainer} className='flex justify-between'>
+              <div className='overflow-hidden'>
+                <div className='overflow-hidden'>
+                  <m.h2 variants={item}>Design</m.h2>
+                </div>
+                <div className='overflow-hidden'>
+                  <m.h2 variants={item}>company</m.h2>
+                </div>
+                <div className='overflow-hidden'>
+                  <m.h2 variants={item}>2022</m.h2>
+                </div>
+              </div>
 
-          <div>
-            <h3>This Pickle gonna make you smile.</h3>
-            <h3>Scottish designs to make you happy.</h3>
-            <h3>Click contact for cool transition.</h3>
+              <div className='overflow-hidden'>
+                <div className='overflow-hidden'>
+                  <m.h3 variants={item}>This Pickle gonna make you smile.</m.h3>
+                </div>
+                <div className='overflow-hidden'>
+                  <m.h3 variants={item}>Scottish designs to make you happy.</m.h3>
+                </div>
+                <div className='overflow-hidden'>
+                  <m.h3 variants={item}>Click contact for cool transition.</m.h3>
+                </div>
+              </div>
+
+            </m.div>
           </div>
-        </div>
+        </m.div>
       </main>
 
 
