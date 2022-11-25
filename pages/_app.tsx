@@ -8,7 +8,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <div className='py-12 px-12 lg:px-48 font-latoBold'>
       <Navbar />
-      <AnimatePresence initial={false }>
+      <AnimatePresence>
         <Component key={router.pathname} {...pageProps} />
       </AnimatePresence>
     </div>
