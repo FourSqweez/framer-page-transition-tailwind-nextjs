@@ -3,44 +3,44 @@
 @tailwind utilities;
 
 @layer components {
-	.page_style{
-		@apply text-gray-900 absolute top-0 left-0 w-full h-full lg:px-48 px-16;
-	}
+   .page_style {
+      @apply text-gray-900 absolute top-0 left-0 w-full h-full lg:px-48 px-16;
+   }
 
-	.main_title {
-		@apply text-6xl text-center lg:text-right lg:text-9xl;
-	}
+   .main_title {
+      @apply text-6xl text-center lg:text-right lg:text-9xl;
+   }
 }
 
 @font-face {
-	font-family: "LatoLight";
-	src: url("../public/Lato-Light.ttf");
+   font-family: 'LatoLight';
+   src: url('../public/Lato-Light.ttf');
 }
 
 @font-face {
-	font-family: "LatoBold";
-	src: url("../public/Lato-Bold.ttf");
+   font-family: 'LatoBold';
+   src: url('../public/Lato-Bold.ttf');
 }
 
 @font-face {
-	font-family: "LatoRegular";
-	src: url("../public/Lato-Regular.ttf");
+   font-family: 'LatoRegular';
+   src: url('../public/Lato-Regular.ttf');
 }
 
 html,
 body {
-	padding: 0;
-	margin: 0;
-	overflow-y: hidden;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+   padding: 0;
+   margin: 0;
+   overflow-y: hidden;
+   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+   color: inherit;
+   text-decoration: none;
 }
 
 * {
-	box-sizing: border-box;
+   box-sizing: border-box;
 }
