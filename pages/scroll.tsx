@@ -1,93 +1,83 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import {
+   motion as m,
+   useMotionValue,
+   useTransform,
+   useAnimation,
+} from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useRouter } from 'next/router';
+import { exit } from 'process';
+import Footer from '../src/components/Footer';
 
-const items = [0, 1, 2, 3, 4];
-const height = 70;
-const padding = 10;
-const size = 150;
+const animateVariant = {
+   initial: {
+      x: '-100vw',
+   },
+   enter: {
+      x: 0,
+      transition: {
+         type: 'spring',
+         duration: 1,
+         bounce: 0.3,
+      },
+   },
+   exit: {
+      y: '-100vh',
+      transition: {
+         duration: 0.5,
+         delay: 1,
+      },
+   },
+};
 
 const Scroll = () => {
-   const scrollY = useMotionValue(0);
-//    const [scroll, setScroll] = useState<number>()
+   const router = useRouter();
+   const { ref, inView } = useInView({
+      threshold: 1,
+   });
+   const animation = useAnimation();
 
-//    useEffect(() => {
+   useEffect(() => {
+      if (inView) {
+         router.push('/');
+         animation.start({
+            x: 0,
+            transition: {
+               type: '',
+               duration: 1,
+               bounce: 0.3,
+            },
+         });
+      }
 
-//     setScroll(window.scrollY)
-   
-//    }, [scroll])
-   
-
-//    console.log('Test scroll : ', scroll)
-
-
-   const width = useTransform(
-      scrollY,
-      [0, -getHeight(items) + size],
-      ['calc(0% - 0px)', 'calc(100% - 40px)']
-   );
-
+      if (!inView) {
+         animation.start({ x: '-100vw' });
+      }
+      console.log('use effect hook, inView = ', inView);
+   }, [inView, animation, router]);
 
    return (
-      <div className="scroll_page">
-         <motion.div
-            style={{
-               width: 150,
-               height: 150,
-               borderRadius: 30,
-               overflow: 'hidden',
-               position: 'relative',
-               transform: 'translateZ(0)',
-               cursor: 'grab',
-            }}
-            whileTap={{ cursor: 'grabbing' }}>
-            <motion.div
-               style={{
-                  width: 150,
-                  height: getHeight(items),
-                  y: scrollY,
-               }}
-               drag="y"
-               dragConstraints={{
-                  top: -getHeight(items) + size,
-                  bottom: 0,
-               }}>
-               {items.map((index) => {
-                  return (
-                     <motion.div
-                        style={{
-                           width: 150,
-                           height: height,
-                           borderRadius: 20,
-                           backgroundColor: '#fff',
-                           position: 'absolute',
-                           top: (height + padding) * index,
-                        }}
-                        key={index}
-                     />
-                  );
-               })}
-            </motion.div>
-         </motion.div>
-         <motion.div
-            style={{
-               width: width,
-               height: 6,
-               borderRadius: 3,
-               backgroundColor: '#fff',
-               position: 'absolute',
-               bottom: 20,
-               left: 20,
-            }}
-         />
-      </div>
+      <>
+         <div className="w-full flex h-screen bg-green-300 justify-center items-center text-4xl px-24">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Consectetur, vitae voluptates. Illo est aspernatur alias autem, sit
+            hic quam fuga nesciunt eaque pariatur. Soluta a, laudantium beatae
+            deleniti cumque amet.
+         </div>
+         <div ref={ref}>
+
+            <m.div
+               variants={animateVariant}
+               initial="initial"
+               animate="enter"
+               exit="exit"
+               className="gap-20 flex h-full flex-col justify-center">
+               <Footer color="bg-orange-100" />
+            </m.div>
+         </div>
+      </>
    );
 };
 
 export default Scroll;
-
-function getHeight(items: any) {
-   const totalHeight = items.length * height;
-   const totalPadding = (items.length - 1) * padding;
-   const totalScroll = totalHeight + totalPadding;
-   return totalScroll;
-}
