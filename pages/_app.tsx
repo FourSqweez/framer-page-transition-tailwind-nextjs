@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 
 export default function App({ Component, pageProps, router }: AppProps) {
    return (
-      <div className="py-12 px-12 lg:px-48 font-latoBold">
+      <div className="font-latoBold">
          <Navbar />
          <AnimatePresence>
             <Component key={router.pathname} {...pageProps} />
