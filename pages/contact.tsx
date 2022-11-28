@@ -11,7 +11,7 @@ const Contact = () => {
                initial={{ y: '100%' }}
                animate={{ y: '0%' }}
                exit={{ opacity: 1 }}
-               transition={{ duration: 0.5, ease: 'easeOut' }}
+               transition={{ duration: 0.5, ease: 'easeInOut' }}
                className=" bg-red-400 page_scroll_container">
                <div className="page_content_container">
                   <div className="main_title">
@@ -54,7 +54,7 @@ const Contact = () => {
                </div>
             </m.main>
          </div>
-         <Footer />
+         <Footer color='bg-green-300'/>
       </>
    );
 };
