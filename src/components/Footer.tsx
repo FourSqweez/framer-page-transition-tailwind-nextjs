@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Footer = () => {
+interface FooterProps {
+   color: string;
+}
+
+const Footer = (props: FooterProps) => {
+   console.log(`first`);
    return (
-      <div className="w-full h-[100vh] min-h-[50%] bg-blue-400 z-40">
+      <div className={`w-full h-[100vh] min-h-[50%] ${props.color} z-40`}>
          Footer
       </div>
    );
