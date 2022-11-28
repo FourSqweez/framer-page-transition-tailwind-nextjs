@@ -2,19 +2,7 @@ import Head from 'next/head';
 import { motion as m } from 'framer-motion';
 import { item, footerContainer, footerItemContainer } from '../animations';
 import Footer from '../src/components/Footer';
-import { useEffect, useState } from 'react';
-
 export default function Home() {
-   const [scroll, setScroll] = useState<any>()
-
-   useEffect(() => {
-
-    setScroll(window.scrollY)
-   
-   }, [scroll])
-   
-
-   console.log('Test scroll : ', scroll)
 
    return (
       <>
@@ -27,8 +15,8 @@ export default function Home() {
             <m.div
                initial={{ y: '100%' }}
                animate={{ y: '0%' }}
-               exit={{ opacity: 1 }}
-               transition={{ duration: 0.5, ease: 'easeOut' }}
+               exit={{ opacity: 1, }}
+               transition={{ duration: 0.8, ease: 'easeInOut'}}
                className="bg-orange-100 page_scroll_container">
                <div className="page_content_container">
                   <div className="overflow-hidden">
@@ -85,7 +73,7 @@ export default function Home() {
             </m.div>
          </div>
 
-         <Footer />
+         <Footer color='bg-red-400'/>
       </>
    );
 }
