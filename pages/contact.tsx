@@ -1,17 +1,17 @@
 import React from 'react';
 import { motion as m } from 'framer-motion';
-import { container, item } from '../animations';
+import { container, enterPageVariantContainer, item } from '../animations';
 import Footer from '../src/components/Footer';
 
 const Contact = () => {
    return (
       <>
-         <div className='flex w-full h-screen'>
+         <div className="flex w-full h-screen">
             <m.main
-               initial={{ y: '100%' }}
-               animate={{ y: '0%' }}
-               exit={{ opacity: 1 }}
-               transition={{ duration: 0.5, ease: 'easeInOut' }}
+               variants={enterPageVariantContainer}
+               initial="init"
+               animate="show"
+               exit={'exit'}
                className=" bg-red-400 page_scroll_container">
                <div className="page_content_container">
                   <div className="main_title">
@@ -54,7 +54,7 @@ const Contact = () => {
                </div>
             </m.main>
          </div>
-         <Footer color='bg-green-300'/>
+         <Footer color="bg-green-300" />
       </>
    );
 };

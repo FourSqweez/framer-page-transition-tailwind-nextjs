@@ -1,9 +1,14 @@
 import Head from 'next/head';
 import { motion as m } from 'framer-motion';
-import { item, footerContainer, footerItemContainer } from '../animations';
+import {
+   item,
+   footerContainer,
+   footerItemContainer,
+   enterPageVariantContainer,
+} from '../animations';
 import Footer from '../src/components/Footer';
+// import { enterPageVariantContainer } from '../src/share/varians';
 export default function Home() {
-
    return (
       <>
          <Head>
@@ -12,11 +17,11 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <div className="w-full h-screen">
-            <m.div
-               initial={{ y: '100%' }}
-               animate={{ y: '0%' }}
-               exit={{ opacity: 1, }}
-               transition={{ duration: 0.8, ease: 'easeInOut'}}
+            <m.main
+               variants={enterPageVariantContainer}
+               initial="init"
+               animate="show"
+               exit={'exit'}
                className="bg-orange-100 page_scroll_container">
                <div className="page_content_container">
                   <div className="overflow-hidden">
@@ -70,10 +75,10 @@ export default function Home() {
                      </div>
                   </m.div>
                </div>
-            </m.div>
+            </m.main>
          </div>
 
-         <Footer color='bg-red-400'/>
+         <Footer color="bg-red-400" />
       </>
    );
 }
