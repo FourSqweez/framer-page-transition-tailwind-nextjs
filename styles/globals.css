@@ -4,7 +4,7 @@
 
 @layer components {
    .page_scroll_container {
-      @apply text-gray-900 absolute top-0 left-0 w-full h-screen lg:px-48 px-16;
+      @apply text-gray-900 absolute top-0 w-full h-screen lg:px-48 px-16;
    }
 
    .page_content_container{
