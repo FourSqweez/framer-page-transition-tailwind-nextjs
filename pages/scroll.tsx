@@ -11,7 +11,7 @@ import Footer from '../src/components/Footer';
 import { enterPageVariantContainer } from '../animations';
 
 import { useInView } from 'react-intersection-observer';
-
+import CustomRedirect from '../src/components/CustomRedirect';
 
 // const animateVariant = {
 //    initial: {
@@ -35,30 +35,30 @@ import { useInView } from 'react-intersection-observer';
 // };
 
 const Scroll = () => {
-      const router = useRouter();
-      const { ref, inView } = useInView({
-         threshold: 1,
-      });
-      const animation = useAnimation();
+   const router = useRouter();
+   const { ref, inView } = useInView({
+      threshold: 1,
+   });
+   const animation = useAnimation();
 
-      useEffect(() => {
-         if (inView) {
-            router.push('/');
-            animation.start({
-               x: 0,
-               transition: {
-                  type: '',
-                  duration: 1,
-                  bounce: 0.3,
-               },
-            });
-         }
+   useEffect(() => {
+      if (inView) {
+         router.push('/');
+         animation.start({
+            x: 0,
+            transition: {
+               type: '',
+               duration: 1,
+               bounce: 0.3,
+            },
+         });
+      }
 
-         if (!inView) {
-            animation.start({ x: '-100vw' });
-         }
-         console.log('use effect hook, inView = ', inView);
-      }, [inView, animation, router]);
+      if (!inView) {
+         animation.start({ x: '-100vw' });
+      }
+      console.log('use effect hook, inView = ', inView);
+   }, [inView, animation, router]);
 
    return (
       <>
@@ -77,9 +77,9 @@ const Scroll = () => {
                </div>
             </m.main>
          </div>
-         <div  ref={ref}>
-            <Footer color="bg-orange-100" />{' '}
-         </div>
+         <CustomRedirect redirectPath="/">
+            <Footer color="bg-orange-100" />
+         </CustomRedirect>
       </>
    );
 };

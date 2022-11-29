@@ -2,6 +2,7 @@ import React from 'react';
 import { motion as m } from 'framer-motion';
 import { container, enterPageVariantContainer, item } from '../animations';
 import Footer from '../src/components/Footer';
+import CustomRedirect from '../src/components/CustomRedirect';
 
 const Contact = () => {
    return (
@@ -54,7 +55,9 @@ const Contact = () => {
                </div>
             </m.main>
          </div>
-         <Footer color="bg-green-300" />
+         <CustomRedirect redirectPath="/scroll">
+            <Footer color="bg-green-300" />
+         </CustomRedirect>
       </>
    );
 };
