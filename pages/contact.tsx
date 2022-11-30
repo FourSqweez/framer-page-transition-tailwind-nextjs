@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion as m } from 'framer-motion';
-import { container, enterPageVariantContainer, item } from '../animations';
+import { container, enterPageVariantContainer, fadeInTransitionY, item } from '../animations';
 import Footer from '../src/components/Footer';
 import CustomRedirect from '../src/components/CustomRedirect';
 
@@ -17,9 +17,9 @@ const Contact = () => {
                <div className="page_content_container">
                   <div className="main_title">
                      <m.h1
-                        animate={{ y: 0 }}
-                        initial={{ y: '100%' }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
+                       variants={fadeInTransitionY('down')}
+                       initial='init'
+                       animate='show'
                         className="main_title">
                         Let&apos;s Talk
                      </m.h1>

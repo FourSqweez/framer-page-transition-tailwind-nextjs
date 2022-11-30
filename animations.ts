@@ -7,15 +7,30 @@ export const enterPageVariantContainer: Variants = {
   show: {
     y: '0%',
     opacity: 1,
-    transition: { duration: 0.5, ease: 'easeInOut' },
+    transition: { duration: 0.8, ease: 'easeInOut' },
   },
   exit: {
     y: '-100vh',
-    transition: { duration: 0.5, delay: 1 },
+    transition: { duration: 0.8, delay: 1 },
   },
 };
 
-export const fadeInTransitionY = {};
+export const fadeInTransitionY = (
+  direction: 'up' | 'down' = 'up'
+): Variants => {
+  return {
+    init: {
+      y: direction === 'up' ? 40 : -60,
+      opacity: 0,
+    },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, delay: 1 },
+      
+    },
+  };
+};
 
 export const container = {
   hidden: { opacity: 0 },
